@@ -1,0 +1,118 @@
+
+Clone your Forked Repository to your local work environment
+// navigate to the directory where you want to clone the repository and run the following command:
+git clone <repository clone url>
+
+Verify that your new cloned project is pointing to the forked repository
+// display the list of remote repositories
+git remote -v
+ 
+// the above command should return something like this (make sure that the "origin" remote points to your own repository):
+origin  ssh://git@stash.ea.com:7999/~bescott_ea.com/viu-api.git (fetch)
+origin  ssh://git@stash.ea.com:7999/~bescott_ea.com/viu-api.git (push)
+GitHub / GitLab - REQUIRED | Stash - OPTIONAL
+
+Add an upstream remote that points to the original repository
+NOTE: This step is necessary to avoid pushing code to the main repository. Code pushes should always be to your forked repo.
+git remote add upstream <clone url for original repo>
+
+// then another "git remote -v" should show something like this:
+origin  ssh://git@stash.ea.com:7999/~bescott_ea.com/viu-api.git (fetch)
+origin  ssh://git@stash.ea.com:7999/~bescott_ea.com/viu-api.git (push)
+upstream    	ssh://git@stash.ea.com:7999/pqe/viu-api.git (fetch)
+upstream    	ssh://git@stash.ea.com:7999/pqe/viu-api.git (push)
+Restrict the upstream remote so that you cannot push to it
+
+// change the upstream URL for the push command so that you can't accidentally push changes to the upstream
+git remote set-url --push upstream DONT_PUSH
+  
+// then another "git remote -v" should show something like this:
+origin  ssh://git@stash.ea.com:7999/~bescott_ea.com/viu-api.git (fetch)
+origin  ssh://git@stash.ea.com:7999/~bescott_ea.com/viu-api.git (push)
+upstream    	ssh://git@stash.ea.com:7999/pqe/viu-api.git (fetch)
+upstream    	DONT_PUSH (push)
+ 
+Configure the GitLab Project
+Set the default branch
+Settings > General > General Project
+Configure Merge Request settings
+Settings > General > Merge Request
+Add default approvers
+Configure the following:
+
+Configure Protected Branches
+Settings > Repository > Protected Branches
+Add a wildcard restriction (match all branches). Default branch should restrict pushes to Maintainers.
+
+ 
+Day-to-Day Development
+Checkout the branch you want to work with
+git checkout <branchName>
+
+// The default branch is usually "develop" and is often the branch you want to be working with.
+// If you need to work on a new feature branch, you can run the following command:
+git branch checkout <newBranchName>
+ 
+Pull all changes from the "upstream" remote
+// The following command will commit the staged files so that they are ready to be pushed to your forked repository.
+git pull upstream <branchName>
+  
+// After running the above command, you should see something like this:
+Enter passphrase for key '/c/Users/bescott/.ssh/id_rsa':
+remote: Counting objects: 1, done.
+remote: Total 1 (delta 0), reused 0 (delta 0)
+Unpacking objects: 100% (1/1), done.
+From ssh://stash.ea.com:7999/pqe/viu-api
+ * branch        	develop	-> FETCH_HEAD
+   a116f79..e1f9b9c  develop	-> upstream/develop
+Updating 28538e9..e1f9b9c
+Fast-forward
+ 
+Make your local changes and verify which files have been changed
+git status
+  
+// the above command should return something like this:
+On branch develop
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+ 
+        modified:   src/app/orgs/org-view/component-groups/ComponentGroupActions.js
+ 
+no changes added to commit (use "git add" and/or "git commit -a")
+ 
+Stage your changes
+// The following command will "stage" all files for commit that were listed in "git status"
+git add –-all
+  
+// The following command will "stage" the specific file for commit, but leave the rest unstaged.
+git add the/filepath/that/was/changed
+ 
+Commit your changes
+// The following command will commit the staged files so that they are ready to be pushed to your forked repository.
+git commit –m “Add a commit message here. What was changed?”
+ 
+Pull any new changes from the "upstream" remote (again)
+If someone else worked on a file that you just changed, there is a chance that there will be merge conflicts.
+Resolve any merge conflicts and commit the resolved conflicts.
+The best thing to do in this case is to use your IDE's "Resolve Conflicts" feature.
+In Netbeans, you can find this feature under "Team > Resolve Conflicts".
+ 
+Push changes to "origin" remote
+// The following command will push all of your local changes to your forked repository.
+git push origin <branchName>
+ 
+Submit a Pull Request (PR)
+Submit a Pull Request (PR) for the changed branch in the Forked (origin) repository to the Original (upstream) repository (through the github / stash UI).
+ 
+
+ 
+Add Reviewers to your PR
+Add at least two peers to review your code before merging the Pull Request.
+ 
+
+ 
+Approve and Merge the Pull Request
+After the PR has been approved by at least two reviewers, and there are no merge conflicts preventing the PR from being merged automatically, you can merge the PR.
+
+

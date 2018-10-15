@@ -3,12 +3,14 @@
 /* Base Styles
 ********************************************************************* */
 html {
+	width: 100%;
 	font-size: 62.5%;
 }
 body {
 	font-size: 1.5em;
 	line-height: 1.6;
 	font-weight: 400;
+	width: 100%;
 	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 	color: #222;
 }
@@ -245,18 +247,19 @@ header {
 }
 .title h1 {
 	font-size: 80px;
-	font-weight: 300;
+	font-weight: 400;
 	text-transform: uppercase;
 	line-height: 0.85;
 	margin-bottom: 28px;
 	margin: 0;
 	padding: 0;
 	color: #FFFFFF;
+
 }
 .title h2 {
 	color: #FFFFFF;
 	font-size: 16px;
-	font-weight: 400;
+	font-weight: 200;
 	text-transform: uppercase;
 	letter-spacing: 5px;
 	margin-top: 50px;
@@ -609,10 +612,10 @@ input[type="submit"]:hover {
 footer {
 	min-height: 120px;
 	padding: 40px 0 40px 0;
-	background: #e55d87;
-	background: -moz-linear-gradient(-45deg, #e55d87 0%, #5fc3e4 100%);
-	background: -webkit-linear-gradient(-45deg, #e55d87 0%, #5fc3e4 100%);
-	background: linear-gradient(135deg, #e55d87 0%, #5fc3e4 100%);
+	background: #4fd153;
+	background: -moz-linear-gradient(-45deg, #4fd153 0%, #5fc3e4 100%);
+	background: -webkit-linear-gradient(-45deg, #4fd153 0%, #5fc3e4 100%);
+	background: linear-gradient(135deg, #4fd153 0%, #5fc3e4 100%);
  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e55d87', endColorstr='#5fc3e4', GradientType=1 );
 	box-sizing: border-box;
 }
@@ -682,14 +685,14 @@ pre, blockquote, dl, figure, table, p, ul, ol, form {
 
 .icon {
 	padding-right: 10px;
-	color: #e55d87;
+	color: #4fd153;
 }
 .block {
 	width: 70px;
 	height: 2px;
-	background: #e55d87; /* Old browsers */
-	background: -moz-linear-gradient(-45deg, #e55d87 0%, #5fc3e4 100%);
-	background: -webkit-linear-gradient(-45deg, #e55d87 0%, #5fc3e4 100%);
-	background: linear-gradient(135deg, #e55d87 0%, #5fc3e4 100%);
+	background: #4fd153; /* Old browsers */
+	background: -moz-linear-gradient(-45deg, #4fd153 0%, #5fc3e4 100%);
+	background: -webkit-linear-gradient(-45deg, #4fd153 0%, #5fc3e4 100%);
+	background: linear-gradient(135deg, #4fd153 0%, #5fc3e4 100%);
 	margin-bottom: 50px;
 }
