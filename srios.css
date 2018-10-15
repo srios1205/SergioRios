@@ -3,12 +3,14 @@
 /* Base Styles
 ********************************************************************* */
 html {
+	width: 100%;
 	font-size: 62.5%;
 }
 body {
 	font-size: 1.5em;
 	line-height: 1.6;
 	font-weight: 400;
+	width: 100%;
 	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 	color: #222;
 }
@@ -245,18 +247,19 @@ header {
 }
 .title h1 {
 	font-size: 80px;
-	font-weight: 300;
+	font-weight: 400;
 	text-transform: uppercase;
 	line-height: 0.85;
 	margin-bottom: 28px;
 	margin: 0;
 	padding: 0;
 	color: #FFFFFF;
+
 }
 .title h2 {
 	color: #FFFFFF;
 	font-size: 16px;
-	font-weight: 400;
+	font-weight: 200;
 	text-transform: uppercase;
 	letter-spacing: 5px;
 	margin-top: 50px;
